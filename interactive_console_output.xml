@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20230118 16:31:14.794" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot Interactive Console" source="c:\Users\upiscopo\.vscode\extensions\robocorp.robotframework-lsp-1.7.3\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
+<test id="s1-t1" name="Default Task/Test" line="5">
+<kw name="Interpreter Main Loop" library="MainLoop">
+<kw name="Get Salesforce Object By Id">
+<var>&amp;{account}</var>
+<arg>Account</arg>
+<arg>${ACCOUNT_TEST}</arg>
+<msg timestamp="20230118 16:31:16.141" level="FAIL">No keyword with name 'Get Salesforce Object By Id' found.</msg>
+<status status="FAIL" starttime="20230118 16:31:16.140" endtime="20230118 16:31:16.141"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{update_obj}</var>
+<arg>Name=Nokia Ltd</arg>
+<arg>BillingStreet=Nokia bulevard 1</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" starttime="20230118 16:31:16.142" endtime="20230118 16:31:16.142"/>
+</kw>
+<kw name="Update Salesforce Object">
+<var>${result}</var>
+<arg>Account</arg>
+<arg>${ACCOUNT_TEST}</arg>
+<arg>${update_obj}</arg>
+<status status="NOT RUN" starttime="20230118 16:31:16.144" endtime="20230118 16:31:16.144"/>
+</kw>
+<status status="PASS" starttime="20230118 16:31:14.862" endtime="20230118 16:31:26.096"/>
+</kw>
+<status status="PASS" starttime="20230118 16:31:14.861" endtime="20230118 16:31:26.096"/>
+</test>
+<status status="PASS" starttime="20230118 16:31:14.802" endtime="20230118 16:31:26.098"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot Interactive Console">Robot Interactive Console</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
