@@ -3,6 +3,7 @@ Documentation       Salesforce API examples.
 ...                 Prerequisites: See README.md
 
 Resource  resources/CommonEnvironment.robot
+Resource  C:/Users/upiscopo/AppData/Local/Programs/Python310/Lib/site-packages/cumulusci/robotframework/Salesforce.robot
 library  SeleniumLibrary  timeout=20
 library  OperatingSystem
 Library             Collections
@@ -19,6 +20,7 @@ Task Setup          Generate random name
 *** Variables ***
 ${ACCOUNT_TEST}    001B000001SbJzNIAV
 ${URL}             https://ssss6-dev-ed.develop.lightning.force.com/lightning/page/home
+${search_NameFieldAccount}    //*[@name="Name"]
 
 *** Tasks ***
 Change account details in Salesforce
@@ -44,7 +46,7 @@ Create a new Salesforce object (Opportunity)
 
 Create a new Salesforce object (Account)
     # Salesforce -> Setup -> Object Manager -> Account -> Fields & Relationships.
-    # Pass in data as a dictionary of object field names.
+    # Pass in data as a dictionary of object field names.//div[@class="slds-form-element__control slds-grow"]....umberto32//*[@id="input-189"]
     ${object_data}=
     ...    Create Dictionary
     ...    Name=${RANDOM_NAME}
@@ -54,20 +56,30 @@ Create a new Salesforce object (Account)
 
 Create_Account
     Open Chrome Browser    ${URL}
+	RPA.Browser.Selenium.Wait Until Element Is Visible      xpath://input[@id='username']
+	RPA.Browser.Selenium.Wait Until Element Is Visible   xpath://input[@id='password']
 	RPA.Browser.Selenium.Click Element       xpath://input[@id='username']
-    RPA.Browser.Selenium.input text     id:username       pdev@sf.com
+    RPA.Browser.Selenium.input text     //*[@id="username"]       pdev@sf.com
 	RPA.Browser.Selenium.Click Element   xpath://input[@id='password']
 	RPA.Browser.Selenium.input text      id:password       umberto32
 	RPA.Browser.Selenium.Click Element    xpath://input[@id='Login']
     sleep    5s
+    RPA.Browser.Selenium.Wait Until Element Is Visible      //one-app-nav-bar-item-root[@data-id="Account"]
     RPA.Browser.Selenium.Click Element    //one-app-nav-bar-item-root[@data-id="Account"]
 	sleep    3s
-    RPA.Browser.Selenium.Click Element    //div[@title="New"]
+    RPA.Browser.Selenium.Click Element    //*[@id="brandBand_1"]/div/div/div/div/div[1]/div[1]/div[2]/ul/li[1]/a/div
 	sleep    3s
-    RPA.Browser.Selenium.Click Element    xpath=//input[@id='input-402']
+	RPA.Browser.Selenium.Wait Until Element Is Visible      ${search_NameFieldAccount}
+	Sleep    1s
+	RPA.Browser.Selenium.Input Text       ${search_NameFieldAccount}       ${RANDOM_NAME}
+	Sleep    1s
 	RPA.Browser.Selenium.Click Element    //button[@name='SaveEdit']
-	sleep    15s
-	RPA.Browser.Selenium.Close Window
+	sleep    8s
+	RPA.Browser.Selenium.Click Element    //span[@class="uiImage"]
+	Sleep    3s
+	RPA.Browser.Selenium.Wait Until Element Is Visible      //a[@class="profile-link-label logout uiOutputURL"]
+	RPA.Browser.Selenium.Click Element    //a[@class="profile-link-label logout uiOutputURL"]
+	RPA.Browser.Selenium.Close Browser
 
 
 
