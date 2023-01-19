@@ -3,7 +3,7 @@ Documentation       Salesforce API examples.
 ...                 Prerequisites: See README.md
 
 Resource  resources/CommonEnvironment.robot
-Resource  C:/Users/upiscopo/AppData/Local/Programs/Python310/Lib/site-packages/cumulusci/robotframework/Salesforce.robot
+#Resource  C:/Users/upiscopo/AppData/Local/Programs/Python310/Lib/site-packages/cumulusci/robotframework/Salesforce.robot
 library  SeleniumLibrary  timeout=20
 library  OperatingSystem
 Library             Collections
