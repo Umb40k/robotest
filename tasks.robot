@@ -8,7 +8,6 @@ Resource  resources/CommonEnvironment.robot
 library  SeleniumLibrary  timeout=20
 library  OperatingSystem
 Library             Collections
-Library             RPA.Robocorp.Vault
 Library             RPA.Salesforce
 Library             String
 Library             RPA.Tables
