@@ -13,7 +13,6 @@ Library             RPA.Salesforce
 Library             String
 Library             RPA.Tables
 Library    RPA.Browser.Selenium
-Library    RPA.Word.Application
 
 Suite Setup         Authenticate
 Task Setup          Generate random name
