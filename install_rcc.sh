@@ -8,4 +8,4 @@ echo "Chromium Version: " && chromium-browser --product-version && chromedriver 
 
 curl -o rcc https://downloads.code.robocorp.com/rcc/latest/linux64/rcc
 chmod a+x rcc
-mv rcc /usr/local/bin/
+sudo mv rcc /usr/local/bin/
