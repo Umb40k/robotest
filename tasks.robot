@@ -24,10 +24,10 @@ ${URL}             https://ssss6-dev-ed.develop.lightning.force.com/lightning/pa
 ${search_NameFieldAccount}    //*[@name="Name"]
 
 *** Tasks ***
-Change account details in Salesforce
-    &{account}=      Get Salesforce Object By Id   Account  ${ACCOUNT_TEST}
-    &{update_obj}=   Create Dictionary   Name=Nokia Ltd  BillingStreet=Nokia bulevard 1
-    ${result}=       Update Salesforce Object  Account  ${ACCOUNT_TEST}  ${update_obj}
+Change account details in Salesforcepy
+  #  &{account}=      Get Salesforce Object By Id   Account  ${ACCOUNT_TEST}
+  #  &{update_obj}=   Create Dictionary   Name=Nokia Ltd  BillingStreet=Nokia bulevard 1
+  #  ${result}=       Update Salesforce Object  Account  ${ACCOUNT_TEST}  ${update_obj}
 
 Create a new Salesforce object (Opportunity)
     # Salesforce -> Setup -> Object Manager -> Opportunity -> Fields & Relationships.
