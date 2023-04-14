@@ -15,6 +15,6 @@ Change account details in Salesforce
 Authorize Salesforce
     ${secrets}=     Get Secret   salesforce
     Auth With Token
-    ...        username=${secrets}[USERNAME]
-    ...        password=${secrets}[PASSWORD]
-    ...        api_token=${secrets}[API_TOKEN]
+    ...        username=${secrets}[pdev@sf.com]
+    ...        password=${secrets}[umberto32]
+    ...        api_token=${secrets}[5AXmrOtUVZ1BUV4dvwxna8uj]
