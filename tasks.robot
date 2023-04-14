@@ -12,6 +12,13 @@ Task Setup  Authorize Salesforce
 
 
 *** Tasks ***
+Get and log the value of the vault secrets using the Get Secret keyword
+    ${secret}=    Get Secret    credentials
+    # Note: In real robots, you should not print secrets to the log.
+    # This is just for demonstration purposes. :)
+    Log    ${secret}[username]
+    Log    ${secret}[password]
+    
 Create a new Salesforce object (Opportunity)
     # Salesforce -> Setup -> Object Manager -> Opportunity -> Fields & Relationships.
     # Pass in data as a dictionary of object field names.
