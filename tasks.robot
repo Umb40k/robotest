@@ -56,8 +56,8 @@ Get the metadata for a Salesforce object
 
 
 *** Keywords ***
-Authenticate
-    ${secret}=    Get Secret    salesforce
+Get Secret
+${secret}=    Get Secret    salesforce
     Auth With Token
     Log    ${secret}[username]
     Log    ${secret}[password]
