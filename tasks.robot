@@ -8,8 +8,7 @@ Library             RPA.Salesforce
 Library             String
 Library             RPA.Tables
 
-Suite Setup         Setup feature environment
-Task Setup          Generate random name
+Task Setup  Authorize Salesforce
 
 
 *** Tasks ***
@@ -56,12 +55,12 @@ Get the metadata for a Salesforce object
 
 
 *** Keywords ***
-Setup feature environment
-${secret}=    Get Secret    salesforce
+Authorize Salesforce
+    ${secrets}=     Get Secret   salesforce
     Auth With Token
-    Log    ${secret}[username]
-    Log    ${secret}[password]
-    Log    ${secret}[token]
+    ...        username=${secrets}[USERNAME]
+    ...        password=${secrets}[PASSWORD]
+    ...        api_token=${secrets}[API_TOKEN]
 
 Generate random name
     ${random_string}=    Generate Random String
