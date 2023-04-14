@@ -8,7 +8,7 @@ Library             RPA.Salesforce
 Library             String
 Library             RPA.Tables
 
-Suite Setup         Authenticate
+Suite Setup         Get Secret
 Task Setup          Generate random name
 
 
