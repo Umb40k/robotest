@@ -59,9 +59,9 @@ Get the metadata for a Salesforce object
 Authenticate
     ${secret}=    Get Secret    salesforce
     Auth With Token
-    ...    ${secret}[username]
-    ...    ${secret}[password]
-    ...    ${secret}[token]
+    Log    ${secret}[username]
+    Log    ${secret}[password]
+    Log    ${secret}[token]
 
 Generate random name
     ${random_string}=    Generate Random String
