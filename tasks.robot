@@ -8,17 +8,11 @@ Library             RPA.Salesforce
 Library             String
 Library             RPA.Tables
 
-Task Setup  Authorize Salesforce
+Suite Setup         Authenticate
+Task Setup          Generate random name
 
 
 *** Tasks ***
-Get and log the value of the vault secrets using the Get Secret keyword
-    ${secret}=    Get Secret    credentials
-    # Note: In real robots, you should not print secrets to the log.
-    # This is just for demonstration purposes. :)
-    Log    ${secret}[username]
-    Log    ${secret}[password]
-    
 Create a new Salesforce object (Opportunity)
     # Salesforce -> Setup -> Object Manager -> Opportunity -> Fields & Relationships.
     # Pass in data as a dictionary of object field names.
@@ -62,12 +56,12 @@ Get the metadata for a Salesforce object
 
 
 *** Keywords ***
-Authorize Salesforce
-    ${secrets}=     Get Secret   salesforce
+Authenticate
+    ${secret}=    Get Secret    salesforce
     Auth With Token
-    ...        username=${secrets}[USERNAME]
-    ...        password=${secrets}[PASSWORD]
-    ...        api_token=${secrets}[API_TOKEN]
+    ...    ${secret}[username]
+    ...    ${secret}[password]
+    ...    ${secret}[token]
 
 Generate random name
     ${random_string}=    Generate Random String
